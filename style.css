@@ -1,0 +1,478 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0F172A;
+    color: #F9FAFB;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+a {
+    color: #ffffff;
+}
+
+
+/*Навбар*/
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    padding: 12px 25px;
+    background: #020617;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.logo a img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border: 2px solid #334756;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #334756;
+    border-radius: 8px;
+    padding: 6px 14px;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    background: #334756;
+    color: #F8FAFC;
+    transform: scale(1.05);
+}
+
+#fav-count {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+/*Контейнер и Карточки*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    padding: 0 20px 50px 20px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    min-height: 750px;
+    width: 380px;
+    border-radius: 12px;
+    background: #1E293B;
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #334155;
+    position: relative;
+}
+
+.cards:hover {
+    transform: translateY(-8px);
+    background: #0F2430;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    border-color: #38bdf8;
+}
+
+.cards.active-card {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.25);
+}
+
+.cards.active-card:hover {
+    background: #161B2E;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 77, 77, 0.4);
+    border-color: #ff4d4d;
+}
+
+
+.item-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #38BDF8;
+    margin-bottom: 15px;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards img {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #334155;
+    transition: all 0.3s ease;
+}
+
+.cards:hover img {
+    filter: brightness(1.3);
+}
+
+.cards p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: #CBD5E1;
+}
+
+.cards b {
+    color: #94A3B8;
+    font-size: 15px;
+}
+
+.minidescr,
+.gamedescription {
+    min-height: 110px;
+    font-size: 14px !important;
+    color: #94A3B8 !important;
+}
+
+.card-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding: 10px 2px;
+    border-top: 1px solid #334155;
+    margin-bottom: 12px;
+}
+
+.rating {
+    background: #020617;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #10B981;
+    border: 1px solid #1e293b;
+}
+
+.heart-icon {
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.heart-icon:hover {
+    transform: scale(1.2);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 12px;
+    background: #093C5D;
+    color: #F8FAFC;
+    border: 1px solid #1E293B;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #0284C7;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+/*Главное Меню*/
+.maincontainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+    padding: 0 20px 50px 20px;
+}
+
+.maincard {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    width: 360px;
+    border-radius: 12px;
+    background: #1E293B;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+.maincard:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: #0B1E29;
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.4);
+    border-color: #38bdf8;
+}
+
+.card-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #38BDF8;
+    margin-bottom: 15px;
+}
+
+.maincard img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #334155;
+    transition: transform 0.3s ease;
+}
+
+.maincard:hover img {
+    transform: scale(1.03);
+}
+
+.maincard p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #94A3B8;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    margin-top: auto;
+    width: 100%;
+}
+
+.main-btn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+
+
+/*Quik Navigation*/
+.dropdown-hidden {
+    display: none;
+}
+
+#search-dropdown {
+    background: #020617;
+    border-bottom: 1px solid #334155;
+    padding: 20px 25px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-content h3 {
+    font-size: 16px;
+    color: #94A3B8;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.tag-item {
+    text-decoration: none;
+    background: #1E293B;
+    color: #F9FAFB;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #334155;
+    transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+    background: #38BDF8;
+    color: #020617;
+    border-color: #38BDF8;
+    transform: translateY(-2px);
+}
+
+
+
+#search-dropdown {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+    padding: 25px 25px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+
+
+    animation: fadeInDropdown 0.25s ease-out;
+}
+
+
+@keyframes fadeInDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/*Light Theme*/
+
+body.light-theme {
+    background: #BFC9D1;
+    color: #1E293B;
+}
+
+body.light-theme header,
+body.light-theme .header,
+body.light-theme .navbar {
+    background: #151F32 !important;
+    border-bottom: 1px solid #334155;
+}
+
+body.light-theme .cards {
+    background: #FFFFFF;
+    border-color: #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+body.light-theme .cards:hover {
+    background: #F8FAFC;
+    border-color: #38BDF8;
+    box-shadow: 0 20px 25px -5px rgba(148, 163, 184, 0.15);
+}
+
+body.light-theme .item-title {
+    color: #0284C7;
+}
+
+body.light-theme .cards p {
+    color: #334155;
+}
+
+body.light-theme .cards b {
+    color: #64748B;
+}
+
+body.light-theme .minidescr,
+body.light-theme .gamedescription {
+    color: #475569 !important;
+}
+
+body.light-theme .cards img {
+    border-color: #E2E8F0;
+}
+
+body.light-theme .card-status {
+    border-top: 1px solid #E2E8F0;
+}
+
+body.light-theme .rating {
+    background: #F0FDF4;
+    color: #6FCF97;
+    border-color: #DCFCE7;
+}
+
+body.light-theme .btn {
+    background: #E0F2FE;
+    color: #0369A1;
+    border-color: #BAE6FD;
+}
+
+body.light-theme .btn:hover {
+    background: #0284C7;
+    color: #FFFFFF;
+}
+
+
+
+
+.btn-theme {
+    transition: all 0.3s ease;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid #334756;
+    border-radius: 8px;
+    padding: 6px 14px;
+    letter-spacing: 1.2px;
+    background: #020617;
+    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+
+.btn-theme:hover {
+    background: #334756;
+    color: #F8FAFC;
+    transform: scale(1.05);
+}
